@@ -58,6 +58,7 @@
     </div>
     <!-- Topbar End -->
 
+    
 
     <!-- Navbar Start -->
  <nav class="navbar navbar-expand-lg bg-primary navbar-dark shadow-sm py-3 py-lg-0 px-3 px-lg-5">
@@ -325,7 +326,7 @@
             <div class="col-lg-3">
                 <div class="text-white mb-5">
                     <div class="bg-secondary rounded-pill d-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
-                        <i class="fa fa-modern fs-4 text-white"></i>
+                        <i class="fa fa-newspaper fs-4 text-white"></i>
                     </div>
                     <h4 class="text-white">Modern Practices</h4>
                     <p class="mb-0">We employ modern farming techniques to ensure the highest standards of poultry care and production.</p>
@@ -342,6 +343,7 @@
     </div>
 </div>
 <!-- Features End -->
+
 
 
 <section id="teamid">
@@ -365,6 +367,77 @@
 </div>
 </section>
 <!-- Product End -->
+<!-- Updated Recipe Section -->
+<!-- Modal code started-->
+ <!-- Modal Structure -->
+<div class="modal fade" id="recipeModal" tabindex="-1" aria-labelledby="recipeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="recipeModalLabel">Recipe</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <iframe id="recipeIframe" src="" width="100%" height="500px"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal code ended-->
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="mx-auto text-center mb-5" style="max-width: 500px;">
+            <h6 class="text-primary text-uppercase">Recipes</h6>
+            <h1 class="display-5">Delicious Recipes with Our Fresh Eggs</h1>
+        </div>
+        <div class="owl-carousel product-carousel px-5">
+            <div class="pb-5">
+                <div class="product-item position-relative bg-white d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="img/rings.png" alt="">
+                    <h6 class="mb-3">Spicy Egg Ring</h6>
+                    <h5 class="text-primary mb-0">Preparation Time: 10 mins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+                        <a class="btn bg-secondary py-2 px-3" href="#" data-bs-toggle="modal" data-bs-target="#recipeModal" data-pdf="pdfs/egg-benedict-recipe.pdf#page=14"><i class="bi bi-eye text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5">
+                <div class="product-item position-relative bg-white d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="img/fried-egg.png" alt="">
+                    <h6 class="mb-3">Garlic Rice with Fried Egg</h6>
+                    <h5 class="text-primary mb-0">Preparation Time: 20 mins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+                        <a class="btn bg-secondary py-2 px-3" href="#" data-bs-toggle="modal" data-bs-target="#recipeModal" data-pdf="pdfs/egg-benedict-recipe.pdf#page=30"><i class="bi bi-eye text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5">
+                <div class="product-item position-relative bg-white d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="img/sweetpotato.png" alt="">
+                    <h6 class="mb-3">Sweet Potato Egg Boats
+                    </h6>
+                    <h5 class="text-primary mb-0">Preparation Time: 20 mins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+                        <a class="btn bg-secondary py-2 px-3" href="#" data-bs-toggle="modal" data-bs-target="#recipeModal" data-pdf="pdfs/egg-benedict-recipe.pdf#page=52"><i class="bi bi-eye text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5">
+                <div class="product-item position-relative bg-white d-flex flex-column text-center">
+                    <img class="img-fluid mb-4" src="img/poachedeggs.png" alt="">
+                    <h6 class="mb-3">Poached Eggs</h6>
+                    <h5 class="text-primary mb-0">Preparation Time: 20 mins</h5>
+                    <div class="btn-action d-flex justify-content-center">
+                        <a class="btn bg-secondary py-2 px-3" href="#" data-bs-toggle="modal" data-bs-target="#recipeModal" data-pdf="pdfs/egg-benedict-recipe.pdf#page=69"><i class="bi bi-eye text-white"></i></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Repeat for other recipes -->
+        </div>
+    </div>
+</div>
 
     
     
@@ -512,7 +585,22 @@
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-secondary py-3 fs-4 back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <script>
+        var recipeModal = document.getElementById('recipeModal');
+        recipeModal.addEventListener('show.bs.modal', function (event) {
+            var button = event.relatedTarget;
+            var pdfSrc = button.getAttribute('data-pdf');
+            var iframe = document.getElementById('recipeIframe');
+            iframe.src = pdfSrc;
+        });
+    
+        // Clear the iframe source when modal is closed to stop the PDF from continuing to load
+        recipeModal.addEventListener('hidden.bs.modal', function () {
+            var iframe = document.getElementById('recipeIframe');
+            iframe.src = "";
+        });
+    </script>
+    
 <script>
 
 window.addEventListener('scroll', function() {
